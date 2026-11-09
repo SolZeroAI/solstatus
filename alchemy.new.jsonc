@@ -43,10 +43,11 @@
     {
       "name": "BETTER_AUTH_SECRET",
       "label": "Session signing secret",
-      "description": "Signs dashboard sessions. Use a random value of at least 32 characters, for example the output of `openssl rand -hex 32`. Keep the same value on later deploys, or every session ends.",
+      "description": "Signs dashboard sessions. alchemy.new generates a random 24-character value when this is empty. Keep the same value on later deploys, or every session ends.",
       "required": true,
       "secret": true,
       "type": "string",
+      "generate": "password",
     },
     {
       "name": "OPSGENIE_API_KEY",
