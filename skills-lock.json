@@ -8,10 +8,10 @@
       "computedHash": "d6910e7d8bb527d2823ba58b6225b304ae649c135fc7e43ec2d2152251c218db"
     },
     "alchemy": {
-      "source": "darkmatter/skills",
+      "source": "wyattjoh/skills",
       "sourceType": "github",
       "skillPath": "skills/alchemy/SKILL.md",
-      "computedHash": "b7216ad283b857e6a1db67120b6054b63e2f4599469caaaecab4b8e12094b22d"
+      "computedHash": "4329a80e27b2d414288cde2500f6fb8f2b36081e45d105a43e2d8aad37c9590f"
     },
     "apple-web-app": {
       "source": "joe-bell/skills",
@@ -23,7 +23,7 @@
       "source": "cloudflare/skills",
       "sourceType": "github",
       "skillPath": "skills/cloudflare/SKILL.md",
-      "computedHash": "e7c26bb690042060d60fcccf3e5807d000c9c064f732b6fcfccb8bbcdc5dc04a"
+      "computedHash": "1cce94a0fea413a5d5f9dd18d2a72cd90e925017c791eb6554be14f5bb777576"
     },
     "drizzle-orm-patterns": {
       "source": "giuseppe-trisciuoglio/developer-kit",
@@ -54,6 +54,18 @@
       "sourceType": "github",
       "skillPath": "skills/nub/SKILL.md",
       "computedHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "oxfmt": {
+      "source": "dobroslavradosavljevic/skills",
+      "sourceType": "github",
+      "skillPath": "skills/oxfmt/SKILL.md",
+      "computedHash": "6090ae99111361f59c49c5587b049ad9b478fc695963ee191a46ac268cd9f277"
+    },
+    "oxlint": {
+      "source": "delexw/claude-code-misc",
+      "sourceType": "github",
+      "skillPath": "skills/oxlint/SKILL.md",
+      "computedHash": "44808aefb361ada1250783eb31ccb20aa020e2c61466e52f53efb10ce20d793b"
     },
     "react-start": {
       "source": "tanstack/router",
