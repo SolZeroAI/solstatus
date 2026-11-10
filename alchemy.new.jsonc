@@ -6,6 +6,7 @@
   "id": "solstatus",
   "name": "SolStatus",
   "description": "Self host a low-cost, globally-distributed uptime monitoring service on Cloudflare.",
+  "icon": "https://raw.githubusercontent.com/SolZeroAI/solstatus/master/packages/app/public/icon-512.png",
   "publisher": {
     "name": "SolZero",
     "github": "SolZeroAI",
