@@ -1,3 +1,9 @@
+## solstatus@4.1.2
+
+### Show the SolStatus logo on alchemy.new
+
+The alchemy.new manifest now sets `icon` to the SolStatus logo. alchemy.new search results and the deploy page show it instead of the SolZeroAI avatar.
+
 ## solstatus@4.1.1
 
 ### Generate the session signing secret on alchemy.new

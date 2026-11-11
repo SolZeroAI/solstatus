@@ -1,9 +1,9 @@
 core:changelogs:
-  - content: "---\npackages:\n  release:solstatus:\n    type: patch\n---\n\n## Generate the session signing secret on alchemy.new\n\nA one-click deploy on alchemy.new now generates `BETTER_AUTH_SECRET` when the field is empty. The registry rejects a package with a required parameter that has no default and no generate rule, so SolStatus 4.1.0 did not publish. Enter the same value on later deploys to keep existing sessions.\n"
-    filename: 2026-11-09-generate-auth-secret.md
+  - content: "---\npackages:\n  release:solstatus:\n    type: patch\n---\n\n## Show the SolStatus logo on alchemy.new\n\nThe alchemy.new manifest now sets `icon` to the SolStatus logo. alchemy.new search results and the deploy page show it instead of the SolZeroAI avatar.\n"
+    filename: alchemy-new-registry-icon.md
     v: 0.0.0
 core:packages:
   - changelogIds:
-      - 2026-11-09-generate-auth-secret.md
+      - alchemy-new-registry-icon.md
     id: release:solstatus
     updated: true
