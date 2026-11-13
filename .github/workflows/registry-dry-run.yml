@@ -67,11 +67,14 @@ jobs:
             # Alchemy's Node export for this subpath is the TypeScript source.
             !node_modules/**/alchemy/src/Runtime/Bootstrap/**
             !node_modules/**/alchemy/src/Runtime/Bootstrap/**/*.ts
+            # The deploy-time Vite build loads these TanStack Start entries.
+            !node_modules/**/@tanstack/react-start/dist/plugin/default-entry/**
+            !node_modules/**/@tanstack/react-start/dist/plugin/default-entry/**/*.ts
+            !node_modules/**/@tanstack/react-start/dist/plugin/default-entry/**/*.tsx
             node_modules/.store/drizzle-kit@*
             node_modules/.store/@electric-sql+*
+            # Duplicate of @cloudflare/workerd-linux-64. The stack resolves that package when it loads.
             node_modules/.store/workerd@*/node_modules/workerd/bin/workerd
-            # The 1.20261002.1 binary ships as @cloudflare/workerd-linux-64.
-            node_modules/.store/@cloudflare+workerd-linux-64@*/node_modules/@cloudflare/workerd-linux-64/bin/workerd
             # esbuild's JavaScript API loads @esbuild/linux-x64. This path is a second copy.
             node_modules/.store/esbuild@*/node_modules/esbuild/bin/esbuild
             # TypeScript's native binary. Alchemy transpiles the stack with Oxc.
