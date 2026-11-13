@@ -1,9 +1,9 @@
 core:changelogs:
-  - content: "---\npackages:\n  release:solstatus:\n    type: patch\n---\n\n## Show the SolStatus logo on alchemy.new\n\nThe alchemy.new manifest now sets `icon` to the SolStatus logo. alchemy.new search results and the deploy page show it instead of the SolZeroAI avatar.\n"
-    filename: alchemy-new-registry-icon.md
+  - content: "---\npackages:\n  release:solstatus:\n    type: patch\n---\n\n## Keep deploy dependencies in the registry archive\n\nalchemy.new deploys the published archive and does not install packages. The archive now keeps `@alchemy.run/cloudflare` for the API and the app, and `@vitejs/plugin-react` for the dashboard build. It also keeps the Linux `workerd` binary and the TanStack Start entries that the deploy loads. Deploy this patch of `solzero/solstatus`. No setting change is required.\n"
+    filename: 2026-11-13-fix-registry-deploy-dependencies.md
     v: 0.0.0
 core:packages:
   - changelogIds:
-      - alchemy-new-registry-icon.md
+      - 2026-11-13-fix-registry-deploy-dependencies.md
     id: release:solstatus
     updated: true
