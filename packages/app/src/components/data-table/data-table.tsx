@@ -1,9 +1,6 @@
 import {
-  type ColumnFiltersState,
   flexRender,
   getCoreRowModel,
-  getFacetedRowModel,
-  getFacetedUniqueValues,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
@@ -79,7 +76,6 @@ export function DataTable() {
 
   const [rowSelection, setRowSelection] = useState<RowSelectionState>({})
   const [columnVisibility, setColumnVisibility] = useState(defaultColumnVisibility)
-  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
 
   const monitors = useEndpointMonitors(params)
   const data = monitors.data?.data ?? noMonitors
@@ -135,22 +131,18 @@ export function DataTable() {
       sorting,
       columnVisibility,
       rowSelection,
-      columnFilters,
       pagination,
     },
     getRowId: (row) => row.id,
     enableRowSelection: true,
     onRowSelectionChange: setRowSelection,
     onSortingChange: handleSortingChange,
-    onColumnFiltersChange: setColumnFilters,
     onColumnVisibilityChange: setColumnVisibility,
     onPaginationChange: handlePaginationChange,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getSortedRowModel: getSortedRowModel(),
-    getFacetedRowModel: getFacetedRowModel(),
-    getFacetedUniqueValues: getFacetedUniqueValues(),
     manualPagination: true,
     pageCount: Math.max(1, Math.ceil(totalEndpointMonitors / pagination.pageSize)),
   })
