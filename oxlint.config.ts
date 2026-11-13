@@ -24,6 +24,12 @@ export default defineConfig({
   rules: {
     // tester-army/e2e is the only runner. Reject *.test.* and *.spec.* outside a test directory.
     "solzero/no-colocated-tests": "error",
+    // Application code reads config from the worker env or an Effect service.
+    // Stack, script, and test files are exempt below.
+    "effect/avoid-process-env": "error",
+    "effect/avoid-node-imports": "error",
+    // Schedule and Effect timing already use duration strings. Keep that shape.
+    "effect/prefer-duration-constructors": "error",
   },
   overrides: [
     {
@@ -42,7 +48,9 @@ export default defineConfig({
         "tests/**",
         "packages/infra/src/alchemy.run.ts",
         "packages/infra/src/stack-options.ts",
+        "packages/api/infra/index.ts",
         "packages/app/infra/index.ts",
+        "packages/common/infra/index.ts",
       ],
       rules: {
         "effect/avoid-process-env": "off",
