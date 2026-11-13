@@ -60,7 +60,7 @@ function calculateDefaultTimeRange(createdAt: Date): TimeRange {
     return "1d"
   }
 
-  // Max out at 2d for monitors older than 2 days
+  // A monitor that is at least one day old opens on the 2 day range.
   return "2d"
 }
 
@@ -113,7 +113,6 @@ function EndpointMonitorDetailPage() {
   })
 
   useEffect(() => {
-    // The useAutoRefresh hook now handles the initial data fetch.
     return () => {
       setHeaderLeftContent(null)
       setHeaderRightContent(defaultHeaderContent)

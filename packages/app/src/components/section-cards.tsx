@@ -36,7 +36,7 @@ export function SectionCards() {
     return <div className="p-4 text-center text-red-500">Failed to load dashboard statistics</div>
   }
 
-  // Use placeholder values until data is loaded
+  // A settled query can still have no payload. The cards render zeros in that case.
   const data = stats || {
     totalEndpointMonitors: 0,
     sitesWithAlerts: 0,
@@ -62,10 +62,6 @@ export function SectionCards() {
         </CardHeader>
         <CardFooter className="flex-col items-start gap-1.5 text-sm">
           <div className="line-clamp-1 flex gap-2 font-medium">Monitored endpoints</div>
-          {/* TODO: Show number of active endpoints */}
-          {/* <div className="text-muted-foreground">
-            Total endpoints being monitored
-          </div> */}
         </CardFooter>
       </Card>
       <Card className="@container/card">
