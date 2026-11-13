@@ -16,8 +16,6 @@ export const UserTable = sqliteTable("user", {
     .notNull(),
 })
 
-export type User = typeof UserTable.$inferSelect
-
 export const SessionTable = sqliteTable("session", {
   id: text("id").primaryKey(),
   expiresAt: integer("expires_at", { mode: "timestamp" }).notNull(),
