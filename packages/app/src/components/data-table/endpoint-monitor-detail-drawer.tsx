@@ -96,9 +96,6 @@ export function EndpointMonitorDetailDrawer({
               </a>
             </div>
 
-            {/* <Separator className="bg-black dark:bg-white"/> */}
-
-            {/* Metadata Section */}
             <table className="w-full">
               <tbody className="divide-y">
                 <tr className="hover:bg-muted">
@@ -206,7 +203,6 @@ export function EndpointMonitorDetailDrawer({
                         ) : (
                           <>
                             {" "}
-                            {/* Fallback to original range-based coloring */}
                             {latestUptimeCheck.status <= 299 && (
                               <span className="text-green-500">{latestUptimeCheck.status}</span>
                             )}

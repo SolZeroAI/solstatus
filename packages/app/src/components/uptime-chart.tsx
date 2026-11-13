@@ -110,14 +110,12 @@ interface ProcessedUptimeDataPoint {
 const processUptimeData = (
   data: readonly UptimeCheck[],
   range: TimeRange,
-  // checkIntervalSeconds: number // Needed to calculate expected checks
 ): ProcessedUptimeDataPoint[] => {
   const now = Date.now()
   let startTime: Date
   const endTime = new Date(now)
   let intervalMinutes: number
   let expectedPoints: number
-  // let expectedChecksPerBucket: number
 
   switch (range) {
     case "30m":
@@ -158,8 +156,6 @@ const processUptimeData = (
     default:
       throw new Error("Invalid time range")
   }
-
-  // expectedChecksPerBucket = (intervalMinutes * 60) / checkIntervalSeconds
 
   const aggregatedData: {
     [key: number]: {
@@ -382,10 +378,8 @@ interface CustomUptimeTooltipProps {
   active?: boolean
   payload?: Array<{
     payload: ProcessedUptimeDataPoint
-    value: number // The value of the specific bar segment being hovered
-    dataKey: string // The key (e.g., 'count2xx') for the segment
-    // name: string // The name assigned to the Bar (e.g., '2xx Success')
-    // color: string // The fill color of the segment
+    value: number
+    dataKey: string
   }>
   label?: number // timeBucket (timestamp in seconds)
   range: TimeRange
