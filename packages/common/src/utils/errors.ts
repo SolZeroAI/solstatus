@@ -10,29 +10,6 @@ export function getErrorMessage(cause: unknown): string {
   return String(cause)
 }
 
-export function getErrorStack(cause: unknown): string | undefined {
-  if (cause instanceof Error) {
-    return cause.stack
-  }
-
-  return undefined
-}
-
-export function logError(cause: unknown): string {
-  const message = getErrorMessage(cause)
-  console.error(message)
-
-  return message
-}
-
-export function logErrorStack(cause: unknown) {
-  const stack = getErrorStack(cause)
-
-  if (stack) {
-    console.error(stack)
-  }
-}
-
 /**
  * Error thrown when the MonitorTrigger Durable Object is accessed before being initialized.
  */
