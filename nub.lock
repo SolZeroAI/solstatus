@@ -116,6 +116,9 @@ importers:
 
   packages/api:
     dependencies:
+      '@alchemy.run/cloudflare':
+        specifier: 2.0.0-beta.85
+        version: 2.0.0-beta.85(@effect/platform-node@4.1.2(effect@4.1.2)(redis@6.3.1))(@types/node@24.19.2)(@types/react@19.3.0)(alchemy@2.0.0-beta.85(@effect/platform-node@4.1.2(effect@4.1.2)(redis@6.3.1))(effect@4.1.2))(effect@4.1.2)(typescript@7.0.2)
       '@solstatus/common':
         specifier: workspace:*
         version: link:../common
@@ -129,9 +132,6 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
     devDependencies:
-      '@alchemy.run/cloudflare':
-        specifier: 2.0.0-beta.85
-        version: 2.0.0-beta.85(@effect/platform-node@4.1.2(effect@4.1.2)(redis@6.3.1))(@types/node@24.19.2)(@types/react@19.3.0)(alchemy@2.0.0-beta.85(@effect/platform-node@4.1.2(effect@4.1.2)(redis@6.3.1))(effect@4.1.2))(effect@4.1.2)(typescript@7.0.2)
       '@cloudflare/workers-types':
         specifier: ^5.20261022.1
         version: 5.20261109.1
@@ -156,6 +156,9 @@ importers:
 
   packages/app:
     dependencies:
+      '@alchemy.run/cloudflare':
+        specifier: 2.0.0-beta.85
+        version: 2.0.0-beta.85(@effect/platform-node@4.1.2(effect@4.1.2)(redis@6.3.1))(@types/react@19.3.0)(alchemy@2.0.0-beta.85(@effect/platform-node@4.1.2(effect@4.1.2)(redis@6.3.1))(effect@4.1.2)(vite@8.3.6(@types/node@24.19.2)(tsx@4.23.15)))(effect@4.1.2)(typescript@7.0.2)(vite@8.3.6(@types/node@24.19.2)(tsx@4.23.15))
       '@hookform/resolvers':
         specifier: ^5.1.1
         version: 5.9.2(effect@4.1.2)(react-hook-form@7.91.0(@types/react@19.3.0)(react@19.3.1))(zod@4.6.7)
@@ -213,6 +216,9 @@ importers:
       '@tanstack/react-table':
         specifier: ^8.21.3
         version: 8.21.3(react@19.3.1)(react-dom@19.3.1(react@19.3.1))
+      '@vitejs/plugin-react':
+        specifier: ^6.0.1
+        version: 6.2.1(vite@8.3.6(@types/node@24.19.2)(tsx@4.23.15))
       better-auth:
         specifier: ^1.2.12
         version: 1.7.18(@tanstack/react-start@1.169.5(react@19.3.1)(react-dom@19.3.1(react@19.3.1))(vite@8.3.6(@types/node@24.19.2)(tsx@4.23.15)))(cookie-es@3.1.1)(drizzle-orm@1.0.0-rc.5-ab785fc(@cloudflare/workers-types@5.20261109.1)(@libsql/client@0.18.0)(effect@4.1.2)(react@19.3.1)(zod@4.6.7))(react@19.3.1)(react-dom@19.3.1(react@19.3.1))
@@ -274,9 +280,6 @@ importers:
         specifier: ^8.3.4
         version: 8.3.6(@types/node@24.19.2)(tsx@4.23.15)
     devDependencies:
-      '@alchemy.run/cloudflare':
-        specifier: 2.0.0-beta.85
-        version: 2.0.0-beta.85(@effect/platform-node@4.1.2(effect@4.1.2)(redis@6.3.1))(@types/react@19.3.0)(alchemy@2.0.0-beta.85(@effect/platform-node@4.1.2(effect@4.1.2)(redis@6.3.1))(effect@4.1.2)(vite@8.3.6(@types/node@24.19.2)(tsx@4.23.15)))(effect@4.1.2)(typescript@7.0.2)(vite@8.3.6(@types/node@24.19.2)(tsx@4.23.15))
       '@cloudflare/workers-types':
         specifier: ^5.20261022.1
         version: 5.20261109.1
@@ -292,9 +295,6 @@ importers:
       '@types/react-dom':
         specifier: 19.3.0
         version: 19.3.0(@types/react@19.3.0)
-      '@vitejs/plugin-react':
-        specifier: ^6.0.1
-        version: 6.2.1(vite@8.3.6(@types/node@24.19.2)(tsx@4.23.15))
       alchemy:
         specifier: 2.0.0-beta.85
         version: 2.0.0-beta.85(@effect/platform-node@4.1.2(effect@4.1.2)(redis@6.3.1))(@types/react@19.3.0)(effect@4.1.2)(vite@8.3.6(@types/node@24.19.2)(tsx@4.23.15))
