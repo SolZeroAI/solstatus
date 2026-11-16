@@ -1,39 +1,70 @@
 ---
 name: tegami
-description: Version and publish SolStatus with Tegami. Use when adding a release note, choosing the release:none label, or changing VERSION, CHANGELOG, the publish lock, or the release workflow.
+description: >-
+  Version and publish with Tegami. Use when a project depends on the tegami
+  package, has a .tegami directory, or runs a tegami script. Covers the
+  library API, CLI commands, and changelog files.
 ---
 
-# Tegami
+# Use Tegami
 
-SolStatus uses Tegami for changelog entries, versioning, and publishing. The program is `scripts/tegami.mts`. It calls `tegami()`, `github()`, and `runCli` from the `tegami` package. Run that program with `nub run tegami`.
+Tegami versions packages from changelog files and publishes from a publish lock. Configure it with the `tegami` package. Drive the CLI through `runCli`.
 
-Read `docs/releasing.md` before you change a release note or the release workflow.
+## Configure
 
-## Release entry
+```ts
+import { tegami } from "tegami"
+import { runCli } from "tegami/cli"
+import { github } from "tegami/plugins/github"
 
-Add a Markdown file under `.tegami/` when a change has an observable effect on a deployment. Target only `"release:solstatus"`. Use `patch`, `minor`, or `major`. Write the note for the people who deploy and run SolStatus.
+const release = tegami({
+  npm: { client: "nub" },
+  plugins: [github({ repo: "owner/name" })],
+})
+
+await runCli(release)
+```
+
+Read the project's Tegami config before changing release behavior. Keep version pull requests, tags, and publish steps in that config and its plugins. Plugin entry points include `tegami/plugins/github`, `tegami/plugins/git`, `tegami/plugins/gitlab`, `tegami/plugins/cargo`, and `tegami/plugins/go`. Set `npm.client` to the repository's package manager.
+
+## Commands
+
+Run the project's Tegami script. With nub, that is `nub run tegami`.
+
+| Command | What it does |
+| --- | --- |
+| *(none)* | Create changelog files interactively |
+| `version` | Apply pending changelogs and write the publish lock |
+| `ci` | Version when changelogs are pending; otherwise publish from the lock |
+| `publish` | Publish packages recorded in the lock. `--dry-run` validates and does not publish |
+| `check-publish` | Exit 0 when a publish is pending, and 1 otherwise |
+| `cleanup` | Remove the publish lock after every package is published |
+| `init-agent` | Append changelog instructions to `AGENTS.md` |
+
+Tegami writes `CHANGELOG.md` and the publish lock. Leave those files for Tegami to update.
+
+## Changelog files
+
+Pending notes live in `.tegami/` unless `changelogDir` says otherwise. Each file has YAML frontmatter and at least one `#`, `##`, or `###` heading. The changelog format is documented at https://tegami.fuma-nama.dev/changelog.
+
+Explicit bump:
 
 ```md
 ---
 packages:
-  "release:solstatus": patch
+  "npm:my-pkg":
+    type: patch
 ---
 
-## Fix monitor interval parsing
+## What changed
 
-The CLI now rejects a check interval below 30 seconds.
+One paragraph a user of the package can read.
 ```
 
-`nub run tegami` can create the file. Keep this format.
+`type` is `major`, `minor`, or `patch`. A short form is also valid: `"@scope/name": patch`.
 
-## No observable effect
+Implicit style lists packages and takes the bump from heading depth: `#` is major, `##` is minor, and `###` is patch. Every listed package receives the highest bump in the file.
 
-A change with no observable effect on a deployment uses the `release:none` label. Explain that choice in the pull request. Do not add a `.tegami/` file for that change.
+A `packages` value is a package name, a package id such as `npm:name`, or a group such as `group:name`.
 
-## Files the version pull request owns
-
-Do not edit `VERSION`, `CHANGELOG.md`, or `.tegami/publish-lock.yaml` on a feature branch. Tegami writes those files when Release runs `nub run tegami version` and `nub run tegami ci`.
-
-## Publish path
-
-Merging the version pull request is what publishes. Do not run a registry publish from a feature branch. Do not deploy production Cloudflare infrastructure from a feature branch.
+A private package is versioned. Tegami does not publish it to npm. Leave `package.json` versions and git tags to the Tegami run. When the repository's contributing guide says a change has no release, follow that guide and skip the changelog file.
