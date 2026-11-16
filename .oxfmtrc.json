@@ -2,6 +2,7 @@
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "ignorePatterns": [
     "**/.agents/skills/**",
+    "**/.claude/skills/**",
     "**/dist/**",
     "**/node_modules/**",
     "**/.wrangler/**",
