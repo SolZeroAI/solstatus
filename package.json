@@ -90,7 +90,7 @@
     "oxlint-plugin-solzero": "^0.1.0",
     "pngjs": "7.0.0",
     "tegami": "1.5.0",
-    "tsrs": "0.23.0-ts7.1.0-beta",
+    "tsrs": "0.25.0-ts7.1.0-beta",
     "tsx": "^4.20.3",
     "typescript": "7.0.2",
     "wrangler": "^4.22.0"
