@@ -18,7 +18,7 @@ the `solstatus` CLI and the `@solstatus/common`, `@solstatus/api`,
 
 ## Development setup
 
-This repository requires Node.js 24.15.0 and Nub 0.10.0. `.node-version`,
+This repository requires Node.js 24.15.0 and Nub 0.11.1. `.node-version`,
 `.nvmrc`, and `packageManager` are the source of truth. Install Nub, then
 install dependencies from the repository root:
 
