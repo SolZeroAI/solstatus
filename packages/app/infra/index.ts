@@ -8,6 +8,7 @@ import * as Cloudflare from "@alchemy.run/cloudflare"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const appRoot = resolve(__dirname, "..")
+
 // Tegami writes the published version to VERSION. The sidebar reads it from here.
 const releaseVersion = readFileSync(resolve(appRoot, "../../VERSION"), "utf8").trim()
 
