@@ -37,7 +37,7 @@
     ".": "./src/index.ts"
   },
   "scripts": {
-    "cli": "tsx ./src/index.ts",
+    "cli": "nub ./src/index.ts",
     "prepare": "lefthook install",
     "dev": "nub run --cwd packages/infra dev",
     "typecheck": "tsrs --pretty false --noEmit --incremental false && tsrs --pretty false --noEmit --incremental false -p packages/common && tsrs --pretty false --noEmit --incremental false -p packages/api && tsrs --pretty false --noEmit --incremental false -p packages/app && tsrs --pretty false --noEmit --incremental false -p packages/infra && nub run typecheck:e2e",
@@ -47,7 +47,7 @@
     "format": "oxfmt --check .",
     "format:fix": "oxfmt .",
     "test": "nub run test:e2e",
-    "tegami": "tsx scripts/tegami.mts",
+    "tegami": "nub scripts/tegami.mts",
     "clean": "rm -rf ./node_modules/ ./packages/*/node_modules/ ./dist/ ./packages/*/dist/",
     "clean:builds": "rm -rf ./dist/ ./packages/*/dist/",
     "build": "nub run typecheck",

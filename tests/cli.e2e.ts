@@ -5,7 +5,7 @@ test(
   "prints Effect 4 CLI help without an Effect 3 @effect/cli peer",
   { platforms: ["cli"] },
   async () => {
-    const result = spawnSync(process.execPath, ["--import", "tsx", "src/index.ts", "--help"], {
+    const result = spawnSync("nub", ["src/index.ts", "--help"], {
       encoding: "utf8",
       env: process.env,
       timeout: 30_000,
