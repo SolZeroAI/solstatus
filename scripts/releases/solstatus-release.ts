@@ -3,8 +3,7 @@ import { join } from "node:path"
 import { type TegamiPlugin, WorkspacePackage } from "tegami"
 import { GitTagPublishTask } from "tegami/plugins/git"
 
-export const SOLSTATUS_PACKAGE_ID = "release:solstatus"
-export const VERSION_FILE = "VERSION"
+const VERSION_FILE = "VERSION"
 
 // One SemVer release version, such as 4.1.0 or 4.1.0-beta.1.
 const SEMVER = /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/

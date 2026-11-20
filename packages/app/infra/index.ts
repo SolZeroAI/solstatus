@@ -71,5 +71,3 @@ export function createApp(
     workersDev: false,
   })
 }
-
-export type AppResource = Awaited<ReturnType<typeof createApp>>
