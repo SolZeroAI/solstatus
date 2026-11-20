@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+#!/usr/bin/env nub
 
 import { execFileSync } from "node:child_process"
 import { randomBytes } from "node:crypto"
