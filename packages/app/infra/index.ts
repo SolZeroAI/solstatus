@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs"
 import { dirname, resolve } from "node:path"
 import { fileURLToPath } from "node:url"
 import type { MonitorExecWorkerResource, MonitorTriggerWorkerResource } from "@solstatus/api/infra"
@@ -7,6 +8,9 @@ import * as Cloudflare from "@alchemy.run/cloudflare"
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const appRoot = resolve(__dirname, "..")
+
+// Tegami writes the published version to VERSION. The sidebar reads it from here.
+const releaseVersion = readFileSync(resolve(appRoot, "../../VERSION"), "utf8").trim()
 
 // Better Auth signs sessions with this value. An empty secret is not safe, so the stack stops.
 function requiredEnv(name: string) {
@@ -55,7 +59,7 @@ export function createApp(
       MONITOR_EXEC_NAME: `${resPrefix}-monitor-exec`,
       MONITOR_TRIGGER_NAME: `${resPrefix}-monitor-trigger`,
       CLOUDFLARE_ACCOUNT_ID: cloudflareAccountId,
-      VITE_APP_VERSION: process.env.VITE_APP_VERSION || "2.1.0-dev",
+      VITE_APP_VERSION: process.env.VITE_APP_VERSION || releaseVersion,
     },
   }
 
