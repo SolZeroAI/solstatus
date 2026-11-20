@@ -292,7 +292,7 @@ const EndpointMonitorHandlers = HttpApiBuilder.group(Api, "endpointMonitors", (h
     )
     .handle("pause", ({ params }) =>
       attempt("pauseMonitor", () => getWorkerEnv().env.MONITOR_TRIGGER_RPC.pauseDo(params.id)).pipe(
-        Effect.as(new MessageResponse({ message: "Paused monitor" })),
+        Effect.map(() => new MessageResponse({ message: "Paused monitor" })),
       ),
     )
     .handle("resume", ({ params }) =>

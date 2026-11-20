@@ -30,6 +30,39 @@ export default defineConfig({
     "effect/avoid-node-imports": "error",
     // Schedule and Effect timing already use duration strings. Keep that shape.
     "effect/prefer-duration-constructors": "error",
+    // These already hold. Turn them on so new code cannot drift.
+    // Left off, because they do not fit this tree:
+    // solzero/no-if-statement and solzero/no-ternary rewrite handlers and charts.
+    // solzero/no-return-in-arrow rejects the Drizzle and React callbacks.
+    // solzero/prevent-dynamic-imports rejects the Vite plugin imports.
+    // solzero/no-manual-effect-channels rejects the runApi callback contract.
+    "effect/throw-in-effect-gen": "error",
+    "effect/avoid-any": "error",
+    "effect/avoid-ts-ignore": "error",
+    "effect/avoid-non-null-assertion": "error",
+    "effect/prefer-redacted-config": "error",
+    "effect/avoid-direct-tag-checks": "error",
+    "solzero/no-pipe-ladder": "error",
+    "solzero/no-flatmap-ladder": "error",
+    "solzero/no-effect-call-in-effect-arg": "error",
+    "solzero/no-nested-effect-call": "error",
+    "solzero/no-effect-as": "error",
+    "solzero/no-option-as": "error",
+    "solzero/no-arrow-ladder": "error",
+    "solzero/no-branch-in-object": "error",
+    "solzero/no-iife-wrapper": "error",
+    "solzero/no-effect-never": "error",
+    "solzero/no-effect-async": "error",
+    "solzero/no-effect-do": "error",
+    "solzero/no-effect-bind": "error",
+    "solzero/no-nested-effect-gen": "error",
+    "solzero/no-match-void-branch": "error",
+    "solzero/no-match-effect-branch": "error",
+    "solzero/warn-effect-sync-wrapper": "error",
+    "solzero/no-effect-side-effect-wrapper": "error",
+    "solzero/no-effect-orElse-ladder": "error",
+    "solzero/prefer-option-over-null": "error",
+    "solzero/avoid-untagged-errors": "error",
   },
   overrides: [
     {
