@@ -6,10 +6,8 @@ export const createDatabaseConfig = (
   databaseId: string,
   accountId: string,
   token: string,
-): Config => {
-  console.log("databaseId", databaseId)
-
-  return defineConfig({
+): Config =>
+  defineConfig({
     // Work around https://github.com/drizzle-team/drizzle-orm/issues/3217
     out: relative("./", resolve(__dirname, "migrations")),
     schema: resolve(__dirname, "schema"),
@@ -22,4 +20,3 @@ export const createDatabaseConfig = (
       token,
     },
   })
-}
