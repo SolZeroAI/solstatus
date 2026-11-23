@@ -52,7 +52,8 @@ Do not edit them here. `models.ts` points official AI SDK providers at the Cloud
 
 - The decision model answers `agent.act`, `agent.assert`, and the affected-test filter.
   `E2E_DECISION_MODEL` selects it. The default is Cloudflare Clef.
-- The language model writes text values. `E2E_LANGUAGE_MODEL` selects it.
+- The language model writes text values. `E2E_LANGUAGE_MODEL` selects it. The default is
+  `meta/muse-ember-1.0`.
 
 Provide `CF_AI_GATEWAY_E2E_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`, and optionally
 `CF_AI_GATEWAY_E2E_ID` (default `default`). This is the account's existing default gateway, not

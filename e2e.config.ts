@@ -51,8 +51,8 @@ export default {
         url: "http://127.0.0.1:3000",
         readyUrl: "http://127.0.0.1:3000",
         command: {
-          executable: "node",
-          args: ["--import", "tsx", "scripts/e2e/stack.ts"],
+          executable: "nub",
+          args: ["scripts/e2e/stack.ts"],
           env: inherited,
           startupTimeout: 300_000,
           shutdownTimeout: 60_000,

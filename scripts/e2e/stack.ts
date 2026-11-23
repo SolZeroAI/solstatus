@@ -68,12 +68,9 @@ delete env.NODE_UNIQUE_ID
 
 delete env.WATCH_REPORT_DEPENDENCIES
 
-const sensitiveValues = Object.entries(process.env)
-  .filter(
-    ([name, value]) =>
-      /TOKEN|SECRET|PASSWORD|KEY|PASSPHRASE/.test(name) && value && value.length > 5,
-  )
-  .map(([, value]) => value!)
+const sensitiveValues = Object.entries(process.env).flatMap(([name, value]) =>
+  /TOKEN|SECRET|PASSWORD|KEY|PASSPHRASE/.test(name) && value && value.length > 5 ? [value] : [],
+)
 
 const redact = (chunk: Buffer) =>
   sensitiveValues.reduce((text, value) => text.replaceAll(value, "[redacted]"), chunk.toString())
