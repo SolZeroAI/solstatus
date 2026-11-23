@@ -105,8 +105,7 @@ const toMonitor = (row: typeof EndpointMonitorsTable.$inferSelect) => new Endpoi
 
 const toCheck = (row: typeof UptimeChecksTable.$inferSelect) => new UptimeCheck(row)
 
-// A new monitor writes its first check right away. A local D1 read can lose that race, so the
-// list read retries a few times before it reports a failure.
+// Retry a thrown list read. A successful page, including an empty one, is not retried.
 const listRetry = { times: 4, schedule: Schedule.exponential("100 millis") }
 
 const EndpointMonitorHandlers = HttpApiBuilder.group(Api, "endpointMonitors", (handlers) =>
@@ -123,7 +122,7 @@ const EndpointMonitorHandlers = HttpApiBuilder.group(Api, "endpointMonitors", (h
         )
       }
 
-      // Build the predicate per query. A shared SQL fragment is not safe to run twice.
+      // Build the predicate per query. A shared Drizzle predicate is not safe to run twice.
       const where = () =>
         query.search
           ? or(
@@ -293,7 +292,7 @@ const EndpointMonitorHandlers = HttpApiBuilder.group(Api, "endpointMonitors", (h
     )
     .handle("pause", ({ params }) =>
       attempt("pauseMonitor", () => getWorkerEnv().env.MONITOR_TRIGGER_RPC.pauseDo(params.id)).pipe(
-        Effect.as(new MessageResponse({ message: "Paused monitor" })),
+        Effect.map(() => new MessageResponse({ message: "Paused monitor" })),
       ),
     )
     .handle("resume", ({ params }) =>
