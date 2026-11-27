@@ -102,9 +102,6 @@ export function LatencyLimitChart({
       { value: 500, color: getColorForResponseTime(500) },
       { value: 1000, color: getColorForResponseTime(1000) },
       { value: 3000, color: getColorForResponseTime(3000) },
-      // Add a final threshold slightly above the max possible if needed,
-      // or rely on the maxResponseTime stop.
-      // Example: { value: 5000, color: getColorForResponseTime(5000) }
     ]
 
     const stops = []
@@ -130,16 +127,14 @@ export function LatencyLimitChart({
           offset: `${Math.max(0, Math.min(100, stop.offset))}%`, // Clamp offset
           color: stop.color,
         }))
-        // Remove consecutive stops with the same offset OR same color
-        // (allowing same color at different offsets for solid bands if needed,
-        // but removing redundant stops at the exact same location)
+        // Drop a stop that repeats the previous offset and color.
         .filter(
           (stop, index, self) =>
             index === 0 ||
             stop.offset !== self[index - 1].offset ||
             stop.color !== self[index - 1].color,
         )
-        // Remove consecutive stops with the same color to ensure smooth transition
+        // Drop a middle stop whose color matches both neighbors. The ends of a flat run stay.
         .filter(
           (stop, index, self) =>
             index === 0 ||
