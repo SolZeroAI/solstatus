@@ -7,8 +7,10 @@ import path, { dirname } from "node:path"
 import { fileURLToPath } from "node:url"
 import { NodeRuntime, NodeServices } from "@effect/platform-node"
 import dotenv from "dotenv"
-import { Console, Effect, Option } from "effect"
 import { Command, Flag } from "effect/cli"
+import * as Console from "effect/Console"
+import * as Effect from "effect/Effect"
+import * as Option from "effect/Option"
 import packageJson from "../package.json" with { type: "json" }
 
 const __filename = fileURLToPath(import.meta.url)

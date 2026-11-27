@@ -36,6 +36,7 @@ export default defineConfig({
     // solzero/no-return-in-arrow rejects the Drizzle and React callbacks.
     // solzero/prevent-dynamic-imports rejects the Vite plugin imports.
     // solzero/no-manual-effect-channels rejects the runApi callback contract.
+    // effect/effect-run-in-body rejects Effect.runPromise in runApi, which is the client boundary.
     "effect/throw-in-effect-gen": "error",
     "effect/avoid-any": "error",
     "effect/avoid-ts-ignore": "error",
@@ -63,6 +64,20 @@ export default defineConfig({
     "solzero/no-effect-orElse-ladder": "error",
     "solzero/prefer-option-over-null": "error",
     "solzero/avoid-untagged-errors": "error",
+    // The tree already imports Effect from its submodules. Keep the package barrel out.
+    "effect/no-barrel-imports": "error",
+    "effect/avoid-data-tagged-error": "error",
+    "effect/avoid-option-getorthrow": "error",
+    "effect/avoid-yield-ref": "error",
+    "effect/no-effect-ignore-then-as": "error",
+    "effect/avoid-platform-coupling": "error",
+    "effect/context-tag-extends": "error",
+    "effect/avoid-schema-suffix": "error",
+    "effect/no-opaque-instance-fields": "error",
+    "effect/prefer-array-fromoption-over-option-match-empty": "error",
+    "effect/effect-promise-vs-trypromise": "error",
+    "effect/effect-catchall-default": "error",
+    "effect/avoid-expect-in-if": "error",
   },
   overrides: [
     {
