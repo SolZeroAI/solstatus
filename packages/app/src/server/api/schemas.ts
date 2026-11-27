@@ -66,7 +66,7 @@ export class MessageResponse extends Schema.Class<MessageResponse>("MessageRespo
   message: Schema.String,
 }) {}
 
-export const CreateEndpointMonitorFields = {
+const CreateEndpointMonitorFields = {
   url: HttpUrl,
   name: Schema.String.check(Schema.isMinLength(1)),
   checkInterval: PositiveInt,

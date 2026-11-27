@@ -11,7 +11,7 @@ export async function handlePauseMonitoring(endpointMonitorId: string) {
   return handleToggleStatus(endpointMonitorId, false)
 }
 
-export async function handleToggleStatus(endpointMonitorId: string, newStatus: boolean) {
+async function handleToggleStatus(endpointMonitorId: string, newStatus: boolean) {
   if (
     !confirm(
       `Are you sure you want to ${newStatus ? "resume" : "pause"} monitoring for this endpoint?`,
