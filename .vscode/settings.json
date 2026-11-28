@@ -2,7 +2,6 @@
   "files.associations": {
     "wrangler.json": "jsonc"
   },
-  "typescript.tsdk": "node_modules/typescript/lib",
   "js/ts.tsdk.path": "./node_modules/tsrs/tsdk",
   "js/ts.experimental.useTsgo": true
 }
