@@ -1,6 +1,6 @@
 ## @solstatus/app@3.0.0
 
-### Align the published toolchain with Shared Project DNA
+### Align the published toolchain
 
 Package consumers now get Nub 0.4.11, TypeScript 7.0.2, Effect 4.0.0-beta.107,
 Drizzle ORM 1.0.0-rc.5, Zod 4.4.3, and Alchemy 2.0.0-beta.72. The dashboard is

@@ -5,13 +5,8 @@ test runner. `nub run test` runs `tests/**/*.e2e.ts` against the real Alchemy de
 the TanStack Start app on port 3000, the monitor workers, local D1, and better-auth. Do not add
 Vitest, mocks, request interception, or a second runner.
 
-SolStatus keeps these choices on purpose:
-
-- better-auth (not Clerk)
-- Cloudflare D1 (not PlanetScale)
-- no turbo (direct Nub scripts)
-- the CLI uses Effect 4 `effect/cli` (not the Effect 3 `@effect/cli` peer)
-- deploy on release
+SolStatus uses better-auth and Cloudflare D1. Root scripts are direct Nub scripts, with no turbo.
+The CLI uses Effect 4 `effect/cli`. The release publishes the package to the alchemy.new registry.
 
 ## Coverage map
 

@@ -4,9 +4,10 @@ This repository is the AGPL-3.0 SolStatus uptime monitor:
 [github.com/SolZeroAI/solstatus](https://github.com/SolZeroAI/solstatus).
 Read the [README](README.md) for the product picture and local setup.
 
-SolStatus is a self-hosted Cloudflare uptime monitor. The repository publishes
-the `solstatus` CLI and the `@solstatus/common`, `@solstatus/api`,
-`@solstatus/app`, and `@solstatus/infra` packages.
+SolStatus is a self-hosted Cloudflare uptime monitor. The release publishes
+the `solstatus` package to the alchemy.new registry. The workspace packages
+`@solstatus/common`, `@solstatus/api`, `@solstatus/app`, and `@solstatus/infra`
+are private.
 
 ## Before you start
 
@@ -33,12 +34,13 @@ behavior changes.
 
 ## Releases
 
-This repository uses Tegami to version and publish the npm packages. Read
-[docs/releasing.md](docs/releasing.md) for changelog format, the version pull
-request, and npm publish. Do not bump `package.json` or `VERSION`, or rewrite
-`CHANGELOG.md`, in a feature pull request. Add a `.tegami/` entry when a
-published package has an observable change. Use the `release:none` label when
-it does not.
+Tegami versions the `solstatus` package, and the release publishes that package
+to the [alchemy.new](https://alchemy.new) registry. The workspace packages are
+private. Read [docs/releasing.md](docs/releasing.md) for the changelog format
+and the version pull request. Do not bump `package.json` or `VERSION`, or
+rewrite `CHANGELOG.md`, in a feature pull request. Add a `.tegami/` entry when
+a change has an observable effect on a deployment. Use the `release:none` label
+when it does not.
 
 ## Validation
 
@@ -66,7 +68,7 @@ A strong pull request includes:
 - Documentation and config example updates when behavior or configuration changes
 - A `.tegami/` release entry, or a `release:none` explanation
 - No credentials, private data, internal URLs, or organization-specific defaults
-- No production deploy, npm publish, or paid spend
+- No production deploy, registry publish, or paid spend
 
 By submitting a contribution, you agree that it may be distributed under the
 repository's AGPL-3.0 license and that you have the right to contribute it.

@@ -79,7 +79,7 @@ A cloud-agent pull request that changes user-visible behavior must attach proof.
 
 ## Architecture
 
-- SolStatus keeps these choices: better-auth (not Clerk), Cloudflare D1 (not PlanetScale), no turbo, the Effect CLI stack in `src/`, deploy on release, and the Tegami release gate.
+- SolStatus uses better-auth and Cloudflare D1. Root scripts are Nub scripts, with no turbo. The CLI is the Effect stack in `src/`. Tegami versions the release, and that release publishes only to the alchemy.new registry.
 - The API is an Effect `HttpApi` in `packages/app/src/server/api/`. `schemas.ts` holds the Effect Schema request, response, and error types. `api.ts` declares the endpoints. `handlers.ts` implements them. `index.ts` serves the API, the OpenAPI document at `/api/openapi.json`, and the Scalar docs at `/api/docs`.
 - `dispatchApi` in `packages/app/src/lib/dispatch-api.ts` sends `/api/auth` and `/api/auth/*` to Better Auth. Every other `/api` request requires a Better Auth session.
 - In a handler, return a typed error such as `NotFoundError` or `ConflictError`. Wrap D1 and RPC calls with `attempt` so that a failure becomes `InternalServerError` with a log and a span. Read Cloudflare bindings with `getWorkerEnv()`, and open Drizzle with `useDrizzle(env.DB)`.
